@@ -1,0 +1,112 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - book_room
+  - inform
+  - Simple
+  - Deluxe
+  - faqbreakfast
+  - Breakfast_timings
+  - Cancel_Reservation
+  - Check_out_timings
+  - Cancellation_Policy
+  - Restaurant_ask
+  - Restaurant_timings
+  - Check_in_timings
+  - room_clean_schedule
+  - room_clean_schedule_time
+  - room_clean_ahead
+
+entities:
+  - no_of_room
+  - facility_type
+  - work
+  - time
+  - time_ahead
+  
+slots:
+  
+   time_ahead:
+      type: text
+  
+   no_of_room:
+      type: text
+      
+
+responses:
+  utter_greet:
+  - text: "Hey! How can I help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa. Made with love by Aman Poonia"
+  
+  utter_ask_noofrooms:
+  - text: "Sure, How many rooms would you like to book."
+
+  utter_confirmation:
+  - text: "Done"
+  
+  utter_type_of_room:
+  - text: "What type of room would you want to book?"
+    buttons:
+    - title: "Simple"
+      payload: "/Simple"
+    - title: "Deluxe"
+      payload: "/Deluxe"
+      
+  utter_confirm_room_type_simple:
+  - text: "You have chosen to book {no_of_room} simple rooms"
+
+  utter_confirm_room_type_deluxe:
+  - text: "You have chosen to book {no_of_room} deluxe rooms"
+  
+  utter_faqbreakfast:
+  - text: "The hotel provides its guests with a free made-to-order breakfast each morning."
+
+  utter_breakfast_timing:
+  - text: "Monday through Friday breakfast is 6 am to 9 am. On Saturday and Sunday, we are open from 7 am to 10:30 am."
+  
+  utter_cancel_reservation:
+  - text: "To cancel a reservation, select the “Reservations” link from the homepage."
+  - text: "On the Reservations page, under the heading ‘View, Change or Cancel a Reservation,’ enter your confirmation number, and either the last name on the reservation or the last four digits of the credit card used to make the reservation."
+  
+  utter_Check_out_timings:
+  - text: "Check-out time is 11 AM. Please contact the reception for late checkout requests."
+  
+  utter_Cancellation_Policy:
+  - text: "The booking deposit is refundable if the cancellation occurs at least 15 days before arrival. For cancellations made after this limit, a penalty will be imposed based on the cancellation policy."
+  
+  utter_Restaurant_ask:
+  - text: "Yes, the hotel has a restaurant called the Zephyr Bar. With our menu we strive to reflect the historic art and the spirit of our neighborhood by offering a glimpse into what makes our area unique."
+  
+  utter_Restaurant_timings:
+  - text: "Our restaurant serves a dazzling 24-hour menu."
+  
+  utter_Check_in_timings:
+  - text: "Check-in time starts at 4 PM. Minimum check-in age is 21. Please contact the reception for early check-in requests."
+  
+  utter_room_clean_schedule:
+  - text: "When should I arrange for a cleaning?"
+  
+  utter_room_clean_schedule_time:
+  - text: "Sure, I will send someone to your room as you say."
+  
+  utter_room_clean_ahead:
+  - text: "Sure, I have scheduled a cleaning for {time_ahead}."
+  
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
